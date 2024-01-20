@@ -1,1 +1,4 @@
 /core
+a.py 
+/__pycache__
+/.devcontainer
