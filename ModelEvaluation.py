@@ -124,7 +124,7 @@ def model():
                 st.text(f"Classification Report for XGBClassifier:\n{classification_xgb}")
         scode = option_menu(None,["Compare","Show Code"],styles={"nav-link": {"font-size": "13px"}},orientation="horizontal")
         if scode == "Compare":
-            tab2= st.selectbox('Choose How you wanna comapre it',("Accuracy Score 📈","Confusion Matrix 📈"),index=None,placeholder="Choose a option")
+            tab2= st.selectbox('Choose How you wanna comapre it',("Accuracy Score 📈","Confusion Matrix 📈"),placeholder="Choose a option")
             if "Accuracy Score 📈" in tab2:
                 dt_model = DecisionTreeClassifier().fit(xtrain, ytrain)
                 lr_model = LogisticRegression().fit(xtrain, ytrain)
@@ -157,7 +157,7 @@ def model():
                 lr_pred = lr_model.predict(xtest)
                 xgb_pred = xgb_model.predict(xtest)
                 svm_pred = svm_model.predict(xtest)
-                models = ['Decision Tree', 'Random Forest', 'Logistic Regression', 'XGBoost', 'Support Vector Machine']
+                models = ['Decision Tree', 'Logistic Regression', 'XGBoost', 'Support Vector Machine']
                 predictions = [dt_pred, lr_pred, xgb_pred, svm_pred]
                 true_positives = []
                 false_positives = []

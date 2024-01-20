@@ -52,7 +52,6 @@ numba
 numpy
 packaging
 pandas
-pandas-profiling
 parso
 patsy
 phik
@@ -97,7 +96,6 @@ streamlit-image-coordinates
 streamlit-keyup
 streamlit-lottie
 streamlit-option-menu
-streamlit-pandas-profiling
 streamlit-toggle-switch
 streamlit-vertical-slider
 tangled-up-in-unicode

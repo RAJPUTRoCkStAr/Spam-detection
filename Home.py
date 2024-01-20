@@ -51,14 +51,13 @@ def home():
                 with col7:
                         st.subheader("Future Enhancements: 📈")
                         st.markdown("As we evolve, exciting enhancements are in the works to make the Spam Detection App even more powerful:")
-                        st.markdown("- **Real-time Prediction:** Get instant predictions for messages as they arrive, ensuring timely insights.")
-                        st.markdown("- **User Authentication:** Personalize your experience by creating an account, unlocking exclusive features, and tailoring the app to your needs.")
-                        st.markdown("- **Enhanced Visualizations:** Dive deeper into data exploration with advanced visualization tools for a richer analytical experience.")
-                        st.markdown("- **Chatbot Integration:** Develop a chatbot to assist users in understanding different models and their definitions.")
-                        st.markdown("- **Integration with Gmail API:** Currently, we're hard at work integrating with the Gmail API for seamless spam and ham filtering directly from your Gmail account.")
-                        st.markdown("    - **Effortless Sync:** Keep your model updated with the latest email patterns, ensuring accurate predictions.")
-                        st.markdown("- **Explore Other APIs:** Look out for integrations with additional APIs, expanding our approach to comprehensive spam detection.")
-                        st.markdown("- **Automated Training:** Implementing an intelligent system for automated model retraining, ensuring continuous improvement without manual intervention.")
+                        st.markdown("✅  ==> **Real-time Prediction:** Get instant predictions for messages as they arrive, ensuring timely insights.")
+                        st.markdown("    ==> **User Authentication:** Personalize your experience by creating an account, unlocking exclusive features, and tailoring the app to your needs.")
+                        st.markdown("    ==> **Enhanced Visualizations:** Dive deeper into data exploration with advanced visualization tools for a richer analytical experience.")
+                        st.markdown("✅ ==> **Chatbot Integration:** Develop a chatbot to assist users in understanding different models and their definitions.")
+                        st.markdown("✅ ==> **Integration with Gmail API:** Currently, we're hard at work integrating with the Gmail API for seamless spam and ham filtering directly from your Gmail account.")
+                        st.markdown("✅ ==> **Effortless Sync:** Keep your model updated with the latest email patterns, ensuring accurate predictions.")
+                        st.markdown("   ==> **Explore Other APIs:** Look out for integrations with additional APIs, expanding our approach to comprehensive spam detection.")
                         st.write("Stay tuned for these transformative updates!")
                 with col8:
                         lottie_future

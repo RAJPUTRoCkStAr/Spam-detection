@@ -8,8 +8,9 @@ def word():
         df = pd.read_csv('spam.csv')
         st.title("Word Clouds")
         tab1 = option_menu(None, ["Ham", "Spam", "Graph 📈"], orientation="horizontal")
+        df['Category'] = df['Category'].replace({'ham': 1, 'spam': 0})
         if "Ham" in tab1:
-                ham_messages = df[df['Category'] == 'ham']['Message']
+                ham_messages = df[df['Category'] == 1]['Message']
                 ham_wordcloud = WordCloud(width=800, height=400, background_color='white').generate(' '.join(ham_messages))
                 st.title("Analysis of 'Ham' Messages")
                 st.write("""
@@ -24,7 +25,7 @@ def word():
                 """)
                 st.image(ham_wordcloud.to_image())
         if "Spam" in tab1:
-                spam_messages = df[df['Category'] == 'spam']['Message']
+                spam_messages = df[df['Category'] == 0]['Message']
                 spam_wordcloud = WordCloud(width=800, height=400, background_color='white').generate(' '.join(spam_messages))
                 st.title("Analysis of 'Spam' Messages")
                 st.write("""

@@ -7,8 +7,6 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
-import json
-import requests
 from streamlit_lottie import st_lottie
 from lotti import lottie_clouds
 def dataover():
@@ -60,4 +58,4 @@ def dataover():
                 plt.tight_layout()
                 st.pyplot(plt)
     if not options:
-        st.write("You have not selected anything to show")
+        st.write("You have not selected anything to show 😒")

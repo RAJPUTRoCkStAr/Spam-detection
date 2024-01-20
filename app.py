@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict 
+import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict,Chabo
 
 st.set_page_config(
                 page_title="Spam Detection App",
@@ -24,12 +24,12 @@ class MultiApp:
                                 'Word Cloud Analysis',
                                 'Model Insights',
                                 'Spam Prediction',
-                                'Data Visualization'
+                                'Data Visualization',
+                                'JARVIS'
                                 ],
-                                icons=['house-fill', 'journal','rocket-takeoff','amd','activity','bar-chart-steps'],
+                                icons=['house-fill', 'journal','rocket-takeoff','amd','activity','bar-chart-steps','chat-square-dots'],
                                 menu_icon="cast"
-                        )
-
+                        ) 
         if app == "Home":
             Home.home()
         if app == "Spam Exploration":
@@ -41,5 +41,7 @@ class MultiApp:
         if app == "Spam Prediction":
           Predict.pred()
         if app == "Data Visualization":
-          DataVisulation.report()       
+          DataVisulation.report()   
+        if app == "JARVIS":
+          Chabo.jar()
     run()   

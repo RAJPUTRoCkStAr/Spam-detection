@@ -14,6 +14,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from streamlit_lottie import st_lottie
 from lotti import lottie_predict
+import Chabo
+class MultiApp:
+    def __init__(self):
+        self.apps = []
+    def add_app(self, title, func):
+        self.apps.append({
+            "title": title,
+            "function": func
+        })
 def pred():
     df = pd.read_csv('spam.csv')
     tab9, tab10 = st.columns([3, 3])
@@ -59,69 +68,75 @@ def pred():
             latest_emails.append({"ID": mail_id, "Subject": subject, "Body": truncated_body})
         mail.logout()
         return latest_emails
-    email_user = "luciferdevil565656@gmail.com"
-    email_pass = "uwuzrutqnzykrxgg"
-    latest_emails = fetch_latest_emails(email_user, email_pass, num_emails=5, num_lines=5)
+    latest_emails = None
+    email_user = st.text_input("Enter your email address") # "luciferdevil565656@gmail.com"
+    email_pass = st.text_input("Enter your email api",placeholder="asithnkeyiopghue") # "uwuzrutqnzykrxgg"
+    st.info(" 🚀 Chat with our helpful bot JARVIS for quick assistance")
+    numemail = st.slider("Select number of email you want to display",max_value=20)
+    submission = st.button("Submit")
+    if submission :
+        if email_user and email_pass:
+            latest_emails = fetch_latest_emails(email_user, email_pass, num_emails=numemail, num_lines=5)
 
-    if latest_emails:
-        st.header("Select an email to predict:")
-        selected_email = st.selectbox("Select an email:", [f"{email['Subject']} ({email['ID'].decode('utf-8')})" for email in latest_emails])
-        selected_email_id = selected_email.split('(')[1].split(')')[0]
+        if latest_emails is not None:
+            st.header("Select an email to predict:")
+            selected_email = st.selectbox("Select an email:", [f"{email['Subject']} ({email['ID'].decode('utf-8')})" for email in latest_emails])
+            selected_email_id = selected_email.split('(')[1].split(')')[0]
 
-        selected_model = st.selectbox("Select a model:", [
-            "Decision Tree",
-            "Logistic Regression",
-            "XGBClassifier",
-            "Support Vector Machine",
-        ])
-        model = None
-    if st.button("Predict"):
-            X_full = df["Message"]
-            y_full = df["Category"]
-            if selected_model == "Decision Tree":
-                model = DecisionTreeClassifier()
-            elif selected_model == "Logistic Regression":
-                model = LogisticRegression()
-            elif selected_model == "XGBClassifier":
-                model = XGBClassifier()
-            elif selected_model == "Support Vector Machine":
-                model = svm.SVC(kernel="linear")
-            if not model:
-                st.warning("Please select a model")
-            encoder = LabelEncoder()
-            df["Category"] = encoder.fit_transform(df["Category"])
-            x = df["Message"]
-            y = df["Category"]
-            cv = CountVectorizer(decode_error="ignore")
-            df["Message"].fillna("", inplace=True)
-            X = cv.fit_transform(df["Message"])
-            xtrain, xtest, ytrain, ytest = train_test_split(X, y)
-            model.fit(xtrain, ytrain)
-            for email_data in latest_emails:
-                if email_data["ID"].decode() == selected_email_id:
-                    with st.status("lets predict your email message", expanded=True) as status:
-                        st.info("Checking your email...")
-                        st.text(f"Selected Email: {email_data['Subject']}")
-                        st.text(email_data["Body"])
-                        time.sleep(4)
-                        st.info("Implementing machine learning algorithm")
-                        email_body_vectorized = cv.transform([email_data["Body"]])
-                        prediction = model.predict(email_body_vectorized)[0]
-                        result = encoder.inverse_transform([prediction])[0]
-                        st.write('Machine Learned from your email Messages ')
-                        time.sleep(2)
-                        st.write("Predicting your email message ....")
-                        time.sleep(2)
-                        if result == 0:
-                            st.success('🎉 Info! This message is identified as Ham.')
-                        elif result == 1:
-                            st.error('🚨 Alert! This message is identified as Spam.') 
-                    st.session_state.predicted_result = result
-    if st.button("Save Prediction"):
-        if 'predicted_result' in st.session_state:
-            new_data = pd.DataFrame({"Message": [selected_email], "Category": [st.session_state.predicted_result]})
-            df = pd.concat([df, new_data], ignore_index=True)
-            df.to_csv('spam.csv', index=False)
-            st.success("Prediction saved successfully!")
-        else:
-            st.warning("No prediction to save. Make a prediction first.")
+            selected_model = st.selectbox("Select a model:", [
+                "Decision Tree",
+                "Logistic Regression",
+                "XGBClassifier",
+                "Support Vector Machine",
+            ])
+            model = None
+        if st.button("Predict"):
+                X_full = df["Message"]
+                y_full = df["Category"]
+                if selected_model == "Decision Tree":
+                    model = DecisionTreeClassifier()
+                elif selected_model == "Logistic Regression":
+                    model = LogisticRegression()
+                elif selected_model == "XGBClassifier":
+                    model = XGBClassifier()
+                elif selected_model == "Support Vector Machine":
+                    model = svm.SVC(kernel="linear")
+                if not model:
+                    st.warning("Please select a model")
+                encoder = LabelEncoder()
+                df["Category"] = encoder.fit_transform(df["Category"])
+                x = df["Message"]
+                y = df["Category"]
+                cv = CountVectorizer(decode_error="ignore")
+                df["Message"].fillna("", inplace=True)
+                X = cv.fit_transform(df["Message"])
+                xtrain, xtest, ytrain, ytest = train_test_split(X, y)
+                model.fit(xtrain, ytrain)
+                for email_data in latest_emails:
+                    if email_data["ID"].decode() == selected_email_id:
+                        with st.status("lets predict your email message", expanded=True) as status:
+                            st.info("Checking your email...")
+                            st.text(f"Selected Email: {email_data['Subject']}")
+                            st.text(email_data["Body"])
+                            time.sleep(4)
+                            st.info("Implementing machine learning algorithm")
+                            email_body_vectorized = cv.transform([email_data["Body"]])
+                            prediction = model.predict(email_body_vectorized)[0]
+                            result = encoder.inverse_transform([prediction])[0]
+                            st.write('Machine Learned from your email Messages ')
+                            time.sleep(2)
+                            st.write("Predicting your email message ....")
+                            time.sleep(2)
+                            if result == 0:
+                                st.success('🎉 Info! This message is identified as Ham.')
+                            elif result == 1:
+                                st.error('🚨 Alert! This message is identified as Spam.') 
+                        st.session_state.predicted_result = result
+        if st.button("Save Prediction"):
+            if 'predicted_result' in st.session_state:
+                        new_data = pd.DataFrame({"Message": [selected_email], "Category": [st.session_state.predicted_result]})
+                        df = pd.concat([df, new_data], ignore_index=True)
+                        df.to_csv('spam.csv', index=False)
+                        st.success("Prediction saved successfully!")
+            else:
+                        st.warning("No prediction to save. Make a prediction first.")
