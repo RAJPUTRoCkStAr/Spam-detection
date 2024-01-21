@@ -20,5 +20,6 @@ lottie_about = load_lottiefile("lottiefiles/About.json")
 lottie_future = load_lottiefile("lottiefiles/future.json")
 lottie_jarvis = load_lottiefile("lottiefiles/Jarvis.json")
 lottie_robot = load_lottiefile("lottiefiles/robot.json")
+lottie_human = load_lottiefile("lottiefiles/human.json")
 
 
