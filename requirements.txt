@@ -68,7 +68,6 @@ Pygments
 pymdown-extensions
 pyparsing
 python-dateutil
-pytz
 PyWavelets
 PyYAML
 referencing
