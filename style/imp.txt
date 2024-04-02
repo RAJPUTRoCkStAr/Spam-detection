@@ -1,2 +1,0 @@
-email_user = "luciferdevil565656@gmail.com"
-email_pass = "uwuzrutqnzykrxgg"
