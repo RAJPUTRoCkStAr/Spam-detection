@@ -13,11 +13,11 @@ def report():
         Welcome to the "Data Visualization 📝" app! This interactive tool is designed to help you gain valuable insights into a dataset related to spam messages. By leveraging the power of Pandas Profiling, the app generates a detailed report that unveils the dataset's characteristics, patterns, and statistical summaries.""")
 
     with col2:
-        lottie_report  # Call the function to get the Lottie animation JSON
+        lottie_report  
         st_lottie(lottie_report, speed=1, reverse=True, loop=True, quality='medium', height=None, width=None, key=None)
 
     df = pd.read_csv("spam.csv")
     profile = ProfileReport(df, title='Pandas Profiling Report', explorative=True)
-    st_profile_report(profile)  # Display the Pandas Profiling report in Streamlit
+    st_profile_report(profile)  
 
 
