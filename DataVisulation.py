@@ -20,4 +20,4 @@ def report():
     profile = ProfileReport(df, title='Pandas Profiling Report', explorative=True)
     st_profile_report(profile)  # Display the Pandas Profiling report in Streamlit
 
-report()  # Call the function to run the Streamlit app
+
