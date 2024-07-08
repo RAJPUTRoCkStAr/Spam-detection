@@ -43,7 +43,7 @@ The project provides several scripts for different stages of the spam detection 
 5. **Real-time Gmail Analysis**
 6. **Word Cloud Visualization**
 7. **Jarvis**
-<a href="https://spam-detection-ml.streamlit.app/">Click here to see Usage</a>
+8. <a href="https://spam-detection-ml.streamlit.app/">**Click here to see Usage**</a>
 
 
 ## Data Files
