@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict,Chabo
+import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict,Robot
 
 st.set_page_config(
                 page_title="Spam Detection App",
@@ -43,5 +43,5 @@ class MultiApp:
         if app == "Data Visualization":
           DataVisulation.report()   
         if app == "JARVIS":
-          Chabo.jar()
+          Robot.jar()
     run()   
