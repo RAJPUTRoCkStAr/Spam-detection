@@ -14,7 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from streamlit_lottie import st_lottie
 from lotti import lottie_predict
-import Chabo
+import Robot
 class MultiApp:
     def __init__(self):
         self.apps = []
