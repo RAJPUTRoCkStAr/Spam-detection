@@ -26,7 +26,6 @@ def model():
                 lottie_model
                 model = st_lottie(lottie_model,speed=1,reverse=True,loop=True,quality='medium',key=None)
         df = pd.read_csv('spam.csv')
-        st.set_option('deprecation.showPyplotGlobalUse', False)
         encoder = LabelEncoder()
         df['Category'] = encoder.fit_transform(df['Category'])
         x = df['Message']
