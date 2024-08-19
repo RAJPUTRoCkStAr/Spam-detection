@@ -3,7 +3,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict,Robot
-st.set_option('deprecation.showPyplotGlobalUse', False)
+
 st.set_page_config(
                 page_title="Spam Detection App",
                 page_icon="✉️",
