@@ -1,3 +1,5 @@
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 import streamlit as st
 from streamlit_option_menu import option_menu
 import Home,Dataoverview,DataVisulation,ModelEvaluation,WordClouds,Predict,Robot
