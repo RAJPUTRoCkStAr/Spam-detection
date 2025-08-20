@@ -69,8 +69,8 @@ def pred():
         mail.logout()
         return latest_emails
     latest_emails = None
-    email_user = st.text_input("Enter your email address") # "luciferdevil565656@gmail.com"
-    email_pass = st.text_input("Enter your email api",placeholder="asithnkeyiopghue") # "uwuzrutqnzykrxgg"
+    email_user = st.text_input("Enter your email address") 
+    email_pass = st.text_input("Enter your email api",placeholder="asithnkeyiopghue") 
     st.info(" 🚀 Chat with our helpful bot JARVIS for quick assistance")
     numemail = st.slider("Select number of email you want to display",max_value=20)
     submission = st.button("Submit")
